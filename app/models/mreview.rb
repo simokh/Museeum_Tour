@@ -1,0 +1,2 @@
+class Mreview < ApplicationRecord
+end

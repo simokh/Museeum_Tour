@@ -1,0 +1,2 @@
+class MreviewsController < ApplicationController
+end
