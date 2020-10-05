@@ -1,0 +1,22 @@
+<h1>Welcome Museum Lovers</h1>
+
+
+<%= form_for(@user, url: '/signup') do |f| %>
+<div>
+<%= f.label :email %>
+<%= f.email_field :email %>
+</div>
+<br>
+<div>
+<%= f.label :user_name %>
+<%= f.text_field :user_name %>
+</div>
+<br>
+<div>
+<%= f.label :password %>
+<%= f.password_field :password %>
+</div>
+<br>
+<%= f.submit "Submit"%>
+
+<% end %>
