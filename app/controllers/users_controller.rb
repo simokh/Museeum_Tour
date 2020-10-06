@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
             if @user.save 
                 session[:user_id] = @user.id 
-                redirect_to @user
+                redirect_to museums_path
                 # binding.pry
             else 
                 render :new 
@@ -25,4 +25,10 @@ class UsersController < ApplicationController
     def user_params 
         params.require(:user).permit(:email, :user_name, :password)
     end
+
+    def current_user
+        @current_user = User.last
+    end
+
+
 end
