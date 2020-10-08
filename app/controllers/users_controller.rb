@@ -20,10 +20,13 @@ class UsersController < ApplicationController
     end
 
     def show 
-
+        @user = User.find_by_id(session[:user_id])
+        redirect_to '/' if !@user
     end
 
-    def update 
+    def update
+        @user = User.find_by_id(session[:user_id])
+        redirect_to '/' if !@user
     end
 
     private 
@@ -32,9 +35,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(:email, :user_name, :password)
     end
 
-    def current_user
-        @current_user = User.last
-    end
+ 
 
 
 end

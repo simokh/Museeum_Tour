@@ -3,23 +3,23 @@ class SessionsController < ApplicationController
     def home 
     end
 
-    def new
-        @user = current_user
+    def new 
+        @user = current_user 
     end
 
     def create
-        post '/login' do 
-            @user = current_user.find_by(user_name: params[:user_name])
+        # binding.pry
+            user = User.find_by(user_name: params[:user][:user_name])
             
-            if @user&.authenticate(params[:password])
+            if user&.authenticate(params[:user][:password])
                 session[:user_id] = user.id
-                redirect_to :login
-                
+                redirect_to museums_path 
             else 
-                erb :home   
+                render :new   
             end
-        end
     end
+
+
 
     def destroy 
         render :home 
@@ -30,4 +30,8 @@ class SessionsController < ApplicationController
     def current_user
         @user = User.find_by_id(session[:user_id])
     end 
+
+    def user_params 
+        params.require(:user).permit(:user_name, :password)
+    end
 end
