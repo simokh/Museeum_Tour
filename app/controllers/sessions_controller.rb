@@ -15,7 +15,8 @@ class SessionsController < ApplicationController
                 session[:user_id] = user.id
                 redirect_to museums_path 
             else 
-                render :new   
+                flash.alert = "Incorrect Username or Password. Please try again"
+                redirect_to '/login'   
             end
     end
 
