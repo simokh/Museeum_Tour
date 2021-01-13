@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
 
-    # def index  
-    # end
-
     def new 
         @user = User.new
     end
@@ -20,14 +17,12 @@ class UsersController < ApplicationController
     end
 
     def show 
-        # @user = User.find_by_id(session[:user_id])
-        user 
+        @user = User.find_by_id(session[:user_id]) 
         redirect_to '/' if !@user
     end
 
     def update
-        # @user = User.find_by_id(session[:user_id])
-        user 
+        @user = User.find_by_id(session[:user_id])
         redirect_to '/' if !@user
     end
 
@@ -38,9 +33,9 @@ class UsersController < ApplicationController
         # params.require(:user).require(:email, :password).permit(*args)
     end
 
-    def user 
-        @user = User.find_by_id(session[:user_id]
-    end
+   
+end 
 
 
-end
+
+
