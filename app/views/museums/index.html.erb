@@ -8,8 +8,12 @@
  <%=link_to "Create Your Visit", new_museum_path%>
 
 
+<br>
+
+<% @museum.each do |museum| %>
+    
+
+<%= link_to museum.name, museum_path(museum) %> <br>
 
 
-<div>
-<%@museum.name%>
-</div>
+<% end %>

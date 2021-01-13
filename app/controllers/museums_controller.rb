@@ -9,18 +9,17 @@ class MuseumsController < ApplicationController
     end
 
     def create 
-        @museum = Museum.new(params)
-        @museum.save 
-
+        # byebug
+        @museum = Museum.new(museum_params)
+        @museum.save
         redirect_to museums_path
-         
     end
 
-    # private
-
-    # def params 
-    #     params.require(:museum).permit(:name, :country, :city)
-    # end
-
-
+    private
+ 
+        def museum_params
+            params.require(:museum).permit(:name, :country, :city)
+        end
 end
+
+
