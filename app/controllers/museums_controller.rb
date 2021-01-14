@@ -15,11 +15,41 @@ class MuseumsController < ApplicationController
         redirect_to museums_path
     end
 
+    def show
+        find_museum
+    end
+
+
+    def edit 
+        find_museum
+    end
+
+
+    def update 
+        find_museum
+            if @museum.update(museum_params)
+                redirect_to museums_path
+            else    
+                render :edit
+                
+            end
+    end
+
+    def destroy
+        find_museum
+        @museum.destroy
+        redirect_to museums_path
+      end
+
     private
- 
-        def museum_params
-            params.require(:museum).permit(:name, :country, :city)
-        end
+        
+    def find_museum
+        @museum = Museum.find(params[:id])
+    end 
+
+    def museum_params
+        params.require(:museum).permit(:name, :country, :city)
+    end
 end
 
 

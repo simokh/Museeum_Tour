@@ -2,18 +2,30 @@
 
 <h2> List of Museums</h2> <br>
 
-
+<div>
  <%= button_to  "Create Your Visit", new_museum_path %> 
 
  <%=link_to "Create Your Visit", new_museum_path%>
 
+</div>
+
 
 <br>
 
+
+<div>
 <% @museum.each do |museum| %>
-    
 
-<%= link_to museum.name, museum_path(museum) %> <br>
-
+<br>
+<%= label_tag  %>
+<%= label_tag "Museum:".capitalize%>
+<%= link_to museum.name, museum_path(museum) %> 
+</div>
+<div>
+<%= link_to "Edit", edit_museum_path(museum) %> 
+<%= link_to 'Delete', museum_path(museum),
+             method: :delete,
+             data: { confirm: 'Are You sure?' } %>
+</div><br>
 
 <% end %>
