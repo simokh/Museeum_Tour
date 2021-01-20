@@ -11,8 +11,15 @@ class MuseumsController < ApplicationController
     def create 
         # byebug
         @museum = Museum.new(museum_params)
-        @museum.save
+
+        if @museum.save
         redirect_to museums_path
+        
+        else
+            @errors = @user.errors.full_messages  
+            render :new
+            
+        end
     end
 
     def show

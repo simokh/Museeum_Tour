@@ -20,3 +20,13 @@
 <%= f.submit "Submit"%>
 
 <% end %>
+
+<%if @errors%>
+    <%@errors.filter do |error|%>
+        <%if params[:email]|| params[:user_name] || params[:password]  %>
+    <%=error%>
+<%end%>
+<%end%>
+<%end%>
+
+

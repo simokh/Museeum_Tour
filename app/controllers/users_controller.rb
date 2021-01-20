@@ -12,6 +12,7 @@ class UsersController < ApplicationController
                 redirect_to museums_path
                 # binding.pry
             else 
+                @errors = @user.errors.full_messages  
                 render :new 
             end
     end
