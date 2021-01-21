@@ -2,7 +2,9 @@
 
 <%if @errors%>
     <%@errors.each do |error|%>
-    <%=error%>
+    <div>
+    <%=error%> 
+    </div>
     <%end%>
 <%end%>
 
@@ -10,7 +12,7 @@
 <%= form_for(@user) do |f| %>
 <div>
 <%= f.label :email %>
-<%= f.email_field :email %>
+<%= f.email_field :email%>
 </div>
 <br>
 <div>

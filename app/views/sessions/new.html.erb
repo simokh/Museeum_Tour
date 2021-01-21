@@ -1,5 +1,9 @@
 <h1 class="title"> Museum Login</h1>
 
+<%=@errors%>
+
+
+
 <%= form_for(:user) do |f| %>
 
 <div>
@@ -13,12 +17,5 @@
 </div>
  
     <%= f.submit "Login" %>
-
-<div> 
-    <%= flash.alert if flash.alert %>
-</div>
-
-
-
 
 <% end %>

@@ -14,9 +14,9 @@ class MuseumsController < ApplicationController
 
         if @museum.save
         redirect_to museums_path
-        
+
         else
-            @errors = @user.errors.full_messages  
+            @errors = @museum.errors.full_messages
             render :new
             
         end
