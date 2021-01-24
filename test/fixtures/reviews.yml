@@ -1,9 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyString
-  rate: 1
+  visit_date: 2021-01-24
 
 two:
-  content: MyString
-  rate: 1
+  visit_date: 2021-01-24
