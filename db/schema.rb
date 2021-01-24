@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_161748) do
+ActiveRecord::Schema.define(version: 2021_01_24_170957) do
 
   create_table "museums", force: :cascade do |t|
     t.string "name"
@@ -21,15 +21,22 @@ ActiveRecord::Schema.define(version: 2021_01_24_161748) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.date "visit_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rate"
+    t.string "review", limit: 200
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "user_name"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.date "visit_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

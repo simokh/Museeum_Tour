@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_many :museums # creating museum visit 
-    has_many :mreviews
-    has_many :museums, through: :mreviews # museuems they have reviewed 
+    has_many :visits 
+    has_many :museums, through: :reviews # museuems they have reviewed 
     has_secure_password
     # validates :email, presence: true, 
     # validates :user_name, presence: true
