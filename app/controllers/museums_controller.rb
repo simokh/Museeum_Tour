@@ -9,7 +9,6 @@ class MuseumsController < ApplicationController
     end
 
     def create 
-        # byebug
         @museum = Museum.new(museum_params)
 
         if @museum.save
