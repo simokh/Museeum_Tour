@@ -15,10 +15,8 @@
 <% @museum.each do |museum| %>
 
 <br>
-<%= label_tag  %>
 <%= label_tag "Museum:".capitalize%>
 <%= link_to museum.name, museum_path(museum) %> 
-<%= link_to museum.visit%>
 </div>
 <div>
 <%= link_to "Edit", edit_museum_path(museum) %> 

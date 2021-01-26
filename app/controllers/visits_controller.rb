@@ -6,41 +6,40 @@ class VisitsController < ApplicationController
     
         
         def new 
-            @visit = VisitsController.new
+            @visit = Visit.new
         end
     
         def create 
             @visit = Visit.new(visit_params)
     
             if @visit.save
-            redirect_to museum_path
+            redirect_to visit_path
     
             else
                 @errors = @visit.errors.full_messages
-                render :new
-                
+                render :new 
             end
         end
     
-        def show
-            find_visit
-        end
+        # def show
+        #     find_visit
+        # end
     
     
-        def edit 
-            find_visit
-        end
+        # def edit 
+        #     find_visit
+        # end
     
     
-        def update 
-            find_visit
-                if @visit.update(visit_params)
-                    redirect_to museum_path
-                else    
-                    render :edit
+        # def update 
+        #     find_visit
+        #         if @visit.update(visit_params)
+        #             redirect_to museum_path
+        #         else    
+        #             render :edit
                     
-                end
-        end
+        #         end
+        # end
     
         def destroy
             find_visit

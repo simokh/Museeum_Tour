@@ -1,0 +1,18 @@
+<h1>Visit Date</h1>
+
+<%if @errors%>
+    <%@errors.each do |error|%>
+    <div>
+    <%=error%> 
+    </div>
+    <%end%>
+<%end%>
+
+<%= form_for(@visit) do |f| %>
+<div>
+<%= f.label :Date %>
+<%= f.date_field (:visit_date) %>
+</div>
+<%= f.submit "Register"%>
+
+<%end%>
