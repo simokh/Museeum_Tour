@@ -6,6 +6,7 @@ class MuseumsController < ApplicationController
 
     def new 
         @museum = Museum.new
+        @museum.build.visit
     end
 
     def create 
@@ -54,7 +55,7 @@ class MuseumsController < ApplicationController
     end 
 
     def museum_params
-        params.require(:museum).permit(:name, :borough)
+        params.require(:museum).permit(:name, :borough, visit_attributes: [:visit_date])
 
     end
 end

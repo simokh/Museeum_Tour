@@ -24,6 +24,12 @@
 </div>
 <br>
 
+<%= form_for(@visit) do |v| %>
+<div>
+<%= v.label :visit_date%>
+<%= v.date_field (:visit_date) %>
+</div>
+
 <%= f.submit "Visit"%>
 
 <%end%>

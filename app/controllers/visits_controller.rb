@@ -21,9 +21,9 @@ class VisitsController < ApplicationController
             end
         end
     
-        # def show
-        #     find_visit
-        # end
+      def show
+        find_visit
+      end
     
     
         # def edit 
