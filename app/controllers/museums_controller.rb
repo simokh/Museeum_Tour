@@ -6,7 +6,6 @@ class MuseumsController < ApplicationController
 
     def new 
         @museum = Museum.new
-        @museum.build.visit
     end
 
     def create 

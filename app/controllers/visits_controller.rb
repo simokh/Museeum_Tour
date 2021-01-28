@@ -13,7 +13,7 @@ class VisitsController < ApplicationController
             @visit = Visit.new(visit_params)
     
             if @visit.save
-            redirect_to visit_path
+            redirect_to visits_path
     
             else
                 @errors = @visit.errors.full_messages
