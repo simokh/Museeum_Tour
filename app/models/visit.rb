@@ -1,4 +1,4 @@
 class Visit < ApplicationRecord
-    belongs_to :museums
-    belongs_to :users
+    belongs_to :museum
+    belongs_to :user
 end
