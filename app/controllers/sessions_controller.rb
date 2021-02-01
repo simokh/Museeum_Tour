@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
 
 
     def destroy 
+        session.clear
         render :home 
     end
 

@@ -18,8 +18,9 @@ class UsersController < ApplicationController
     end
 
     def show 
+        redirect_if_not_logged_in
         @user = User.find_by_id(session[:user_id]) 
-        redirect_to '/' if !@user
+        # redirect_to '/' if !@user
     end
 
     def update

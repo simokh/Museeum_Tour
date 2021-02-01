@@ -5,10 +5,15 @@ class Museum < ApplicationRecord
     has_many :visits
     has_many :users, through: :visits  
     has_many :review_users, through: :reviews , source: :users 
-    
-    # validates :name, presence: true
-    # validates :borough, presence: true
-    # validates :name, uniqueness: true
+
+    accepts_nested_attributes_for :visits
+    accepts_nested_attributes_for :reviews
+
+
+
+    validates :name, presence: true
+    validates :borough, presence: true
+    validates :name, uniqueness: true
 
     
 
