@@ -1,5 +1,8 @@
 class MuseumsController < ApplicationController
 
+    before_action :redirect_if_not_logged_in
+
+
     def index 
         @museum = Museum.all
     end
@@ -11,15 +14,14 @@ class MuseumsController < ApplicationController
     end
 
     def create 
-        @museum = Museum.new(museum_params)
+        # @museum = Museum.new(museum_params)
+        @museum = current_user.museums.build(museum_params)
 
         if @museum.save
         redirect_to museums_path
-
         else
             @errors = @museum.errors.full_messages
-            render :new
-            
+            render :new 
         end
     end
 
