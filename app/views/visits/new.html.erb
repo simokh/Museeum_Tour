@@ -11,8 +11,41 @@
 <%= form_for(@visit) do |f| %>
 <div>
 <%= f.label :Date %>
-<%= f.date_field (:visit_date) %>
+<%= f.date_field :visit_date %>
 </div>
+
+
+<%= f.fields_for :name do |v| %>
+<div>
+<%= v.label :name%>
+<%= v.text_field :name %>
+</div>
+<%end%>
+
+
+<%= f.fields_for :borough do |v| %>
+<div>
+<%= v.label :borough%>
+<%= v.text_field :borough %>
+</div>
+<%end%>
+
+<%= f.fields_for :review do |v| %>
+<div>
+<%= v.label :review%>
+<%= v.text_area :review %>
+</div>
+<%end%>
+
+<%= f.fields_for :rate do |v| %>
+<div>
+<%= v.label :rate%>
+<%= v.text_field :rate %>
+</div>
+<%end%>
+
+
+
 <%= f.submit "Register"%>
 
 <%end%>

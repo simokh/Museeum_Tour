@@ -10,8 +10,9 @@ class VisitsController < ApplicationController
         end
     
         def create 
-            @visit = Visit.new(visit_params)
-    
+            # @visit = Visit.new(visit_params)
+            @museum = current_user.visits.build(visit_params)
+            
             if @visit.save
             redirect_to visits_path
     
@@ -54,7 +55,7 @@ class VisitsController < ApplicationController
         end 
     
         def visit_params
-            params.require(:visit).permit(:visit_date)
+            params.require(:visit).permit(:visit_date) 
         end
     
 end

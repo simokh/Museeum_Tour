@@ -7,7 +7,7 @@ class Museum < ApplicationRecord
     has_many :review_users, through: :reviews , source: :users 
 
     accepts_nested_attributes_for :visits
-    accepts_nested_attributes_for :reviews
+    accepts_nested_attributes_for :reviews 
 
 
 
