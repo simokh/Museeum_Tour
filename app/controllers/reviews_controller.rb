@@ -10,11 +10,10 @@ class ReviewsController < ApplicationController
         end
     
         def create 
-            @review = Review.new(review_params)
+            @review = current_user.reviews.build(review_params)
     
             if @review.save
-            redirect_to @review_path(review)
-    
+            redirect_to @review
             else
                 @errors = @review.errors.full_messages
                 render :new 
@@ -44,7 +43,7 @@ class ReviewsController < ApplicationController
         def destroy
             find_review
             @review.destroy
-            redirect_to @review_path(review)
+            redirect_to @review
         end
     
         private
@@ -56,6 +55,4 @@ class ReviewsController < ApplicationController
         def review_params
             params.require(:review).permit(:review, :rate)
         end
-
-
-end
+end 

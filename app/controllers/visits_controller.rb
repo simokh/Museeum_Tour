@@ -11,7 +11,7 @@ class VisitsController < ApplicationController
     
         def create 
             # @visit = Visit.new(visit_params)
-            @museum = current_user.visits.build(visit_params)
+            @visit = current_user.visits.build(visit_params)
             
             if @visit.save
             redirect_to visits_path

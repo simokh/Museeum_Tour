@@ -1,0 +1,29 @@
+<%= link_to  "Home", museums_path%>
+
+
+
+<h1> Write Review</h1>
+
+<%if @errors%>
+    <%@errors.each do |error|%>
+    <div>
+    <%=error%> 
+    </div>
+    <%end%>
+<%end%>
+
+<%= form_for(@review) do |f| %>
+<div>
+<%= f.label :review %>
+<%= f.text_area :review %>
+</div>
+<br>
+<div>
+<%= f.label :rate %>
+<%= number_field :rate, nil, min: 1, max: 5%>
+
+</div>
+
+<%= f.submit "Review"%>
+
+<%end%>
