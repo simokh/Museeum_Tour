@@ -9,19 +9,10 @@ class MuseumsController < ApplicationController
 
     def new 
         @museum = Museum.new
-        # @museum.build_visits
-        # @museum.build_reviews
-        @museum.visit_build 
-        @museum.review_build
-        
-        
     end
 
     def create 
-        binding.pry
-        # @museum = Museum.new(museum_params)
         @museum = Museum.new(museum_params)
-
         if @museum.save
         redirect_to museums_path
         else
@@ -63,11 +54,7 @@ class MuseumsController < ApplicationController
     end 
 
     def museum_params
-        params.require(:museum).permit(
-            :name, :borough, 
-            visit_date: [:visit_date]
-        )
-
+        params.require(:museum).permit(:name, :borough)
     end
 end
 

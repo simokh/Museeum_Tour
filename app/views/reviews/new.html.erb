@@ -6,24 +6,30 @@
 
 <%if @errors%>
     <%@errors.each do |error|%>
-    <div>
+    <>
     <%=error%> 
-    </div>
+    </>
     <%end%>
 <%end%>
-
-<%= form_for(@review) do |f| %>
+<br>
+<%= form_for @review do |f| %>
 <div>
 <%= f.label :review %>
 <%= f.text_area :review %>
 </div>
 <br>
-<div>
 <%= f.label :rate %>
 <%= number_field :rate, nil, min: 1, max: 5%>
 
+<%= f.fields_for :museum do |m| %>
+<%= m.label :name %>
+<%= m.text_field :name %>
+<br>
+<div>
+<%= m.label :borough %>
+<%= m.text_field :borough %>
 </div>
-
+<%end%>
+</div>
 <%= f.submit "Review"%>
-
 <%end%>

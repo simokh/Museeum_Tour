@@ -7,11 +7,13 @@ class ReviewsController < ApplicationController
         
         def new 
             @review = Review.new
+            @review.build_museum
         end
     
         def create 
-            @review = current_user.reviews.build(review_params)
-    
+            binding.pry 
+            @review = Review.new(review_params)
+            @review.user = User.last
             if @review.save
             redirect_to @review
             else
@@ -25,20 +27,20 @@ class ReviewsController < ApplicationController
         end
     
     
-        # def edit 
-        #     find_visit
-        # end
+        def edit 
+            find_review
+        end
     
     
-        # def update 
-        #     find_visit
-        #         if @visit.update(visit_params)
-        #             redirect_to museum_path
-        #         else    
-        #             render :edit
+        def update 
+            find_review
+                if @review.update(review_params)
+                    redirect_to museum_path
+                else    
+                    render :edit
                     
-        #         end
-        # end
+                end
+        end
     
         def destroy
             find_review
@@ -49,10 +51,10 @@ class ReviewsController < ApplicationController
         private
             
         def find_review
-            @review = review.find(params[:id])
+            @review = Review.find(params[:id])
         end 
     
         def review_params
-            params.require(:review).permit(:review, :rate)
+            params.require(:review).permit(:review, :rate, museum_attributes:[:name, :borough])
         end
 end 
