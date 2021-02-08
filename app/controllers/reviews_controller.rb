@@ -11,11 +11,11 @@ class ReviewsController < ApplicationController
         end
     
         def create 
-            binding.pry 
+            # binding.pry exit
             @review = Review.new(review_params)
-            @review.user = User.last
+            @review.user = current_user
             if @review.save
-            redirect_to @review
+            redirect_to museums_path
             else
                 @errors = @review.errors.full_messages
                 render :new 
