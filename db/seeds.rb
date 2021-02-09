@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+    met = Museum.create(name: "Metroplitan Musuem of Art", borough: "New York")
+    moma = Museum.create(name: "Metroplitan Musuem of Modern Art", borough: "New York")
+    MNH = Museum.create(name: "Musuem of Natural History", borough: "New York")
+

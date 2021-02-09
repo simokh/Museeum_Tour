@@ -1,7 +1,16 @@
 <h1>All Reviews </h1>
 
+<div>
+
 
 <% @review.each do |r|%>
-<%= r.review%>
+<div>
+<%= r.museum%><br>
+<%= label_tag "Review" %>: 
+<%= r.review%> <br>
+<%= label_tag "Rate" %>:
 <%= r.rate%>
+</div>
+<br>
 <%end%>
+
