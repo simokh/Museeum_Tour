@@ -15,12 +15,13 @@ class ReviewsController < ApplicationController
             @review = Review.new(review_params)
             @review.user = current_user
             if @review.save
-            redirect_to museums_path
+            redirect_to review_path(@review)
             else
                 @errors = @review.errors.full_messages
                 render :new 
             end
         end
+
     
         def show
             find_review

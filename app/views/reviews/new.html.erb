@@ -20,13 +20,13 @@
 <br>
 <%= f.label :rate %>
 <%=f.range_field :rate, :in => 0..5, :step => 1 %>
-
+<%=f.collection_select :museum_id, Museum.all, :id, :name, prompt: true %>
 <%= f.fields_for :museum do |m| %>
-
-<%= m.label :name %>
-<%= m.text_field :name %>
 <br>
 <div>
+
+<%=m.collection_select :museum_id, Museum.all, :id, :name, prompt: true %>
+
 <%= m.label :borough %>
 <%= m.text_field :borough %>
 </div>
