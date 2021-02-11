@@ -1,4 +1,4 @@
-<%= link_to  "Home", museums_path%>
+
 
 
 
@@ -24,9 +24,6 @@
 <%= f.fields_for :museum do |m| %>
 <br>
 <div>
-
-<%=m.collection_select :museum_id, Museum.all, :id, :name, prompt: true %>
-
 <%= m.label :borough %>
 <%= m.text_field :borough %>
 </div>

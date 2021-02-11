@@ -14,14 +14,9 @@
 <% @museum.each do |museum| %>
 
 <br>
-<%= label_tag "Museum:".capitalize%>
-<%= link_to museum.name, reviews_url %> 
+
+<%= link_to museum.name, @review %> <br>
 </div>
-<div>
-<%= link_to "Edit", edit_museum_path(museum) %> 
-<%= link_to 'Delete', museum_path(museum),
-             method: :delete,
-             data: { confirm: 'Are You sure?' } %>
-</div><br>
+
 
 <% end %>

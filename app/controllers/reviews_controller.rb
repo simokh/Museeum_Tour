@@ -56,6 +56,6 @@ class ReviewsController < ApplicationController
         end 
     
         def review_params
-            params.require(:review).permit(:review, :rate, museum_attributes:[:name, :borough])
+            params.require(:review).permit(:museum_id, :review, :rate, museum_attributes:[:name, :borough])
         end
 end 
