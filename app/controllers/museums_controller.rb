@@ -4,7 +4,7 @@ class MuseumsController < ApplicationController
 
 
     def index 
-        @museum = Museum.all
+        @museum = Museum.all.order(:name)
     end
 
     def new 
@@ -33,19 +33,18 @@ class MuseumsController < ApplicationController
 
     def update 
         find_museum
-            if @museum.update(museum_params)
+            if find_museum.update(museum_params)
                 redirect_to museums_path
             else    
-                render :edit
-                
+                render :edit  
             end
     end
 
     def destroy
-        find_museum
-        @museum.destroy
+        if find_museum.destroy
         redirect_to museums_path
-      end
+        end 
+    end
 
     private
         

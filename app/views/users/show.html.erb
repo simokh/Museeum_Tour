@@ -1,2 +1,16 @@
-<h1>Welcome Back <%=@user.user_name%> </h1>
+<h1>Welcome Back <%=current_user.user_name.capitalize%> </h1>
 
+<% if current_user.reviews.any? %>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>Your reviews</h4>
+      <ul>
+        <% current_user.reviews.each do |review| %>
+        <li class="li-underline"><%= link_to review.museum.name, museum_review_path(review.museum, review) %> <span class="right"><%= review.rating %>/5</span></li>
+        <% end %>
+        <% else %>
+        <em>You have not reviewed any items!</em>3
+        <% end %>
+      </ul>
+    </div>
+  </div>

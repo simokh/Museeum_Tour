@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
         redirect_to '/' if !logged_in?
     end
 
+    def authorize
+        if !current_user
+          flash[:alert] = "Get out of Here."
+          redirect_to '/'
+        end
+    end
+
 end

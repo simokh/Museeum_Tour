@@ -1,0 +1,13 @@
+<h2>Musuem Reviews</h2>
+<br><br>
+
+<div class="row">
+    <div class="col-sm-6">
+    <h4>Most Reviewed Museums</h4>
+    <ul>
+      <% @most_reviews.each do |museum| %>
+      <li class="li-underline"><%= link_to museum.name, museum_path(museum) %><span class="right"><%= museum.reviews.count %> reviews</span></li>
+      <% end %>
+    </ul>
+  </div>
+  </div>

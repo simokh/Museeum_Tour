@@ -6,16 +6,15 @@ class ReviewsController < ApplicationController
     
         
         def new 
-            @review = Review.new
-            @review.build_museum
+            museum_instance
+            @review = @museum.reviews.new
         end
     
         def create 
-            # binding.pry exit
-            @review = Review.new(review_params)
-            @review.user = current_user
+            museum_instance
+            @review = museum_instance.reviews.new(review_params)
             if @review.save
-            redirect_to review_path(@review)
+            redirect_to review_path(@review.museum)
             else
                 @errors = @review.errors.full_messages
                 render :new 
@@ -24,19 +23,20 @@ class ReviewsController < ApplicationController
 
     
         def show
-            find_review
+            
         end
     
     
         def edit 
             find_review
+            @musuem = @review.museum
         end
     
     
         def update 
             find_review
                 if @review.update(review_params)
-                    redirect_to museum_path
+                    redirect_to museum_path(@review.museum)
                 else    
                     render :edit
                     
@@ -44,18 +44,22 @@ class ReviewsController < ApplicationController
         end
     
         def destroy
-            find_review
+            @museum = find_review.review
             @review.destroy
-            redirect_to @review
+            redirect_to museum_path(@museum)
         end
     
         private
+
+        def museum_instance
+            @musuem = Museum.find(params[:museum_id])
+        end
             
         def find_review
             @review = Review.find(params[:id])
         end 
     
         def review_params
-            params.require(:review).permit(:museum_id, :review, :rate, museum_attributes:[:name, :borough])
+            params.require(:review).permit(:user_id, :museum_id, :review, :rate, museum_attributes:[:name, :borough])
         end
 end 
