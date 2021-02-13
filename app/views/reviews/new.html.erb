@@ -1,9 +1,3 @@
-
-
-
-
-<h1> Write Review</h1>
-
 <%if @errors%>
     <%@errors.each do |error|%>
     <>
@@ -12,29 +6,7 @@
     <%end%>
 <%end%>
 <br>
-<%
-=begin%>
- <%= form_for @review do |f| %>
-<div>
-<%= f.label :review %>
-<%= f.text_area :review %>
-</div>
-<br>
-<%= f.label :rate %>
-<%=f.range_field :rate, :in => 0..5, :step => 1 %>
-<%=f.collection_select :museum_id, Museum.all, :id, :name, prompt: true %>
-<%= f.fields_for :museum do |m| %>
-<br>
-<div>
-<%= m.label :borough %>
-<%= m.text_field :borough %>
-</div>
-<%end%>
-</div>
-<%= f.submit "Review"%>
-<%end%> 
-<%
-=end%>
+
 <h2>New Review for <%= @museum.name %></h2>
 
 <%= form_for [@museum, @review] do |f| %>

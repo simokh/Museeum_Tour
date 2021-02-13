@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
     
         def edit 
             find_review
-            @musuem = @review.museum
+            @museum = @review.museum
         end
     
     
