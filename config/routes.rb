@@ -14,13 +14,13 @@ Rails.application.routes.draw do
 
 
 
-  resources :reviews
-  resources :museums
-  resources :users
+  # resources :reviews
+  # resources :museums
+  resources :users, :except => [:edit, :update]
 
 
   resources :museums do 
-    resources :reviews, only: [:new, :create, :index]
+    resources :reviews
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,10 +1,18 @@
 
-<H1>Your Visit</H1>
-<%= label_tag "Museum"%>: 
-<%= @review.name%> <br>
-<%= label_tag "Location"%>: 
-<%= @review.borough%><br>
-<%= label_tag "review"%>: 
-<%= @review.review%> <br>
-<%= label_tag "Rate"%>: 
-<%= @review.rate%>
+<h3><%= @review.user.user_name.capitalize %>'s review for <%= @museum.name %></h3> 
+
+<p><%= @review.review %></p>
+<p><% @review.rate.times do %><span class="star">★</span>
+<% end %>
+<% (5 - @review.rate).times do %><span class="out-of">★</span>
+<% end %></p>
+<em><%= time_ago_in_words(@review.created_at) %> ago</em>
+
+<hr>
+<ul class="sub-links">
+  <li><%= link_to "Return to Museum", museum_path(@museum) %></li>
+  <% if current_user %>
+    <li><%= link_to "Edit your review", edit_museum_review_path(@museum, @review) if current_user.id === @review.user.id %></li>
+    <li><%= link_to "Delete your review", museum_review_path(@museum, @review), :data => {:confirm => "You sure?", :method => "delete"} if current_user.id === @review.user.id %></li>
+  <% end %>
+</ul>

@@ -7,6 +7,18 @@
 <%=@museum.borough%><br>
 
 
+<h4>Reviews for <%= @museum.name %></h4>
+<% if @museum.reviews.any? %>
+  <ul>
+    <% @museum.reviews.order(:updated_at).reverse.each do |review| %>
+      <li><% review.rate.times do %><span class="star">★</span><% end %><% (5 - review.rate).times do %><span class="out-of">★</span><% end %><a href="<%= museum_review_path(@museum, review) %>">  <%= truncate(review.review, :length => 200) %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <em>This museum has 0 reviews, <%= link_to "Add one now!", new_museum_review_path(@museum) %></em>
+<% end %>
+
+
 
 
 

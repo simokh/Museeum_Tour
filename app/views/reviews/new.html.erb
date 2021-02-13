@@ -12,7 +12,9 @@
     <%end%>
 <%end%>
 <br>
-<%= form_for @review do |f| %>
+<%
+=begin%>
+ <%= form_for @review do |f| %>
 <div>
 <%= f.label :review %>
 <%= f.text_area :review %>
@@ -30,4 +32,22 @@
 <%end%>
 </div>
 <%= f.submit "Review"%>
-<%end%>
+<%end%> 
+<%
+=end%>
+<h2>New Review for <%= @museum.name %></h2>
+
+<%= form_for [@museum, @review] do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.label :review, "Write your review below" %>
+  <%= f.text_area :review %>
+  <%= f.label :rate, "Rate this product" %>
+  <%= f.select(:rate, options_for_select([
+    ["1", 1],
+    ["2", 2],
+    ["3", 3],
+    ["4", 4],
+    ["5", 5]
+    ])) %>
+  <%= f.submit "Submit Review" %>
+<% end %>

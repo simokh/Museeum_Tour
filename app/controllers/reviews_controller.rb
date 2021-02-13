@@ -1,20 +1,16 @@
 class ReviewsController < ApplicationController
 
-        def index
-          @review = Review.all 
-        end
-    
         
-        def new 
-            museum_instance
+        def new
+            @museum = Museum.find(params[:museum_id])
             @review = @museum.reviews.new
         end
     
         def create 
-            museum_instance
-            @review = museum_instance.reviews.new(review_params)
+            find_museum
+            @review = find_museum.reviews.new(review_params)
             if @review.save
-            redirect_to review_path(@review.museum)
+            redirect_to museum_path(@review.museum)
             else
                 @errors = @review.errors.full_messages
                 render :new 
@@ -23,7 +19,8 @@ class ReviewsController < ApplicationController
 
     
         def show
-            
+            find_review
+            @museum = find_review.museum
         end
     
     
@@ -44,14 +41,15 @@ class ReviewsController < ApplicationController
         end
     
         def destroy
-            @museum = find_review.review
-            @review.destroy
+            @museum = find_review.museum
+            if @review.destroy
             redirect_to museum_path(@museum)
+            end 
         end
     
         private
 
-        def museum_instance
+        def find_museum
             @musuem = Museum.find(params[:museum_id])
         end
             
@@ -60,6 +58,6 @@ class ReviewsController < ApplicationController
         end 
     
         def review_params
-            params.require(:review).permit(:user_id, :museum_id, :review, :rate, museum_attributes:[:name, :borough])
+            params.require(:review).permit(:user_id, :museum_id, :review, :rate)
         end
 end 

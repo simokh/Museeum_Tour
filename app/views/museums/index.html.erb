@@ -1,22 +1,20 @@
 <h1>Welcome <%=current_user.user_name.capitalize%> to Your Museum Visits </h1>
 
-<h2> List of Museums</h2> <br>
+<h2> All Museums</h2> <br>
 
 <div>
- <%= button_to  "Create Your Visit", new_review_path, method: :get%>
+ <%
+=begin%>
+ <%= button_to  "Create Your Visit", new_review_path, method: :get%> 
+<%
+=end%>
 </div>
 
 
 <br>
 
-
-<div>
-<% @museum.each do |museum| %>
-
-<br>
-
-<%= link_to museum.name, @review %> <br>
-</div>
-
-
-<% end %>
+    <ul>
+      <% @museum.each do |museum| %>
+      <li class="li-underline"><%= link_to museum.name, museum_path(museum) %></li>
+      <% end %>
+    </ul>
