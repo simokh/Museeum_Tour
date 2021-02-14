@@ -1,22 +1,28 @@
-<%= link_to  "Home", museums_path%>
-<h1>YAY</h1>
-
-<%= label_tag "Museum Name:"%>
-<%=@museum.name%> <br>
-<%= label_tag "Borough:"%>
-<%=@museum.borough%><br>
-
-
 <h4>Reviews for <%= @museum.name %></h4>
+
+<ul>
+<%= label_tag "Museum Name: "%> <%=@museum.name%> <br>
+<%= label_tag "Borough: "%> <%=@museum.borough%><br>
+
+<% if @museum.reviews.any? %>
+<%= label_tag "Avergae Rating: "%> <%= @museum.reviews.average(:rate).round(2) %> / 5
+<% end %>
+
 <% if @museum.reviews.any? %>
   <ul>
     <% @museum.reviews.order(:updated_at).reverse.each do |review| %>
-      <li><% review.rate.times do %><span class="star">★</span><% end %><% (5 - review.rate).times do %><span class="out-of">★</span><% end %><a href="<%= museum_review_path(@museum, review) %>">  <%= truncate(review.review, :length => 200) %></a></li>
+      <% review.rate.times do %>
+      <span class="star">★</span>
+      <% end %>
+      <% (5 - review.rate).times do %>
+      <span class="out-of">★</span>
+      <% end %>
+      <a href="<%= museum_review_path(@museum, review) %>">  <%= truncate(review.review, :length => 200) %></a>
     <% end %>
   </ul>
-<% else %>
-  <em>This museum has 0 reviews, <%= link_to "Add one now!", new_museum_review_path(@museum) %></em>
-<% end %>
+    <% else %>
+      <em>This museum has 0 reviews, <%= link_to "Add one now!", new_museum_review_path(@museum) %></em>
+    <% end %>
 
 
 

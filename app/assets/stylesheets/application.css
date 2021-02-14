@@ -13,3 +13,50 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
+ .footer {
+  position: fixed;
+  padding: 1em 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  border-top: solid 1px #333;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 10;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.star {
+  color: gold;
+}
+
+label, textarea, input, button, select {
+  display: block;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"]
+input[type= "email"]
+input[type= "User name"] {
+  margin-bottom: auto;
+  width: 50%;
+  max-width: 500px;
+  border: rgb(10, 1, 1);
+  &:focus {
+    outline: none; 
+  }
+
+  input[type="submit"] {
+    margin-top: 1em;
+    background-color: green;
+    border: solid 1px #333;
+  }
