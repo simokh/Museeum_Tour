@@ -24,6 +24,10 @@
       <em>This museum has 0 reviews, <%= link_to "Add one now!", new_museum_review_path(@museum) %></em>
     <% end %>
 
+     <% if current_user %>
+    <li><%= link_to "Add a review", new_museum_review_path(@museum) %></li>
+  <% end %>
+
 
 
 

@@ -35,14 +35,13 @@ class ReviewsController < ApplicationController
                 if @review.update(review_params)
                     redirect_to museum_path(@review.museum)
                 else    
-                    render :edit
-                    
+                    render :edit   
                 end
         end
     
         def destroy
-            @museum = find_review.museum
-            if @review.destroy
+            @musuem= find_review.museum
+            if @museum.destroy
             redirect_to museum_path(@museum)
             end 
         end

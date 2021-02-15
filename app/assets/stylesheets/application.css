@@ -26,6 +26,10 @@
   z-index: 10;
 }
 
+#notice {
+  color: greenyellow
+}
+
 .right {
   float: right;
 }
@@ -50,10 +54,9 @@ input[type= "User name"] {
   margin-bottom: auto;
   width: 50%;
   max-width: 500px;
-  border: rgb(10, 1, 1);
-  &:focus {
-    outline: none; 
-  }
+  border: #0a0101;
+}
+
 
   input[type="submit"] {
     margin-top: 1em;

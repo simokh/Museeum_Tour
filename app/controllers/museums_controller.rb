@@ -4,7 +4,7 @@ class MuseumsController < ApplicationController
 
 
     def index 
-        @museum = Museum.all.order(:name)
+        @museums = Museum.all.order(:name)
     end
 
     def new 

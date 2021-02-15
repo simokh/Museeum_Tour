@@ -1,17 +1,5 @@
 <h1>Welcome Museum Lovers</h1>
 
-<%
-=begin%>
- <%if @errors%>
-    <%@errors.each do |error|%>
-    <div>
-    <%=error%> 
-    </div>
-    <%end%>
-<%end%> 
-<%
-=end%>
-
 <%= render "layouts/errors", :object => @user %>
 
 

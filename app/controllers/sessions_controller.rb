@@ -25,7 +25,8 @@ class SessionsController < ApplicationController
 
     def destroy 
         session.clear
-        render :home 
+        flash[:notice] = "You've signed out."
+        redirect_to "/" 
     end
 
     private 

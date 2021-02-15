@@ -1,7 +1,7 @@
 <h2> All Museums</h2> <br>
 <br>
     <ul>
-      <% @museum.each do |museum| %>
+      <% @museums.each do |museum| %>
       <li class="li-underline"><%= link_to museum.name, museum_path(museum) %></li>
       <% end %>
     </ul>
