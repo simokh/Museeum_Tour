@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_26_034736) do
+ActiveRecord::Schema.define(version: 2021_02_15_183954) do
 
   create_table "museums", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_034736) do
     t.string "review", limit: 200
     t.integer "user_id"
     t.integer "museum_id"
+    t.integer "visit_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,11 +38,9 @@ ActiveRecord::Schema.define(version: 2021_01_26_034736) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.date "visit_date"
+    t.date "visit"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "museum_id"
   end
 
 end

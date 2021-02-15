@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
         def new
             @museum = Museum.find(params[:museum_id])
             @review = @museum.reviews.new
+            @review.build_visit
         end
     
         def create 
@@ -57,6 +58,6 @@ class ReviewsController < ApplicationController
         end 
     
         def review_params
-            params.require(:review).permit(:user_id, :museum_id, :review, :rate)
+            params.require(:review).permit(:user_id, :museum_id, :review, :rate, visit_attributes:[:visit_date])
         end
 end 

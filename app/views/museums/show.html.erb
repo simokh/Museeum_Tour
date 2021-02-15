@@ -1,5 +1,4 @@
 <h4>Reviews for <%= @museum.name %></h4>
-
 <ul>
 <%= label_tag "Museum Name: "%> <%=@museum.name%> <br>
 <%= label_tag "Borough: "%> <%=@museum.borough%><br>
@@ -7,6 +6,9 @@
 <% if @museum.reviews.any? %>
 <%= label_tag "Avergae Rating: "%> <%= @museum.reviews.average(:rate).round(2) %> / 5
 <% end %>
+
+</ul>
+
 
 <% if @museum.reviews.any? %>
   <ul>
@@ -25,7 +27,7 @@
     <% end %>
 
      <% if current_user %>
-    <li><%= link_to "Add a review", new_museum_review_path(@museum) %></li>
+    <ul><%= link_to "Add a review", new_museum_review_path(@museum) %></ul>
   <% end %>
 
 
