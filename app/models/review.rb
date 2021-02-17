@@ -1,11 +1,10 @@
 class Review < ApplicationRecord
     belongs_to :user
     belongs_to :museum
-    belongs_to :visit
+    # belongs_to :visit
 
-    # validates :product_id, :user_id, :presence => truee
+    validates :museum_id, :user_id, :presence => true
 
     
-    accepts_nested_attributes_for :visit
 
 end

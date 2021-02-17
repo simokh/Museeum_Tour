@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
 
 
-  # resources :reviews
+  resources :reviews
   # resources :museums
   resources :users, :except => [:edit, :update]
 

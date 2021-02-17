@@ -1,25 +1,5 @@
 
-<%= form_for(@museum) do |f| %>
-<div>
-<%= f.label :name %>
-<%= f.text_field :name %>
-</div>
-<br>
-<div>
-<%= f.label :borough %>
-<%= f.text_field :borough %>
-</div>
-<br>
 
-<br>
 
-<%= f.fields_for :visit_date do |v| %>
-<div>
-<%= v.label :visit_date%>
-<%= v.date_field :visit_date %>
-</div>
-<%end%>
+<%= render "form" %>
 
-<%= f.submit "Update"%>
-
-<%end%>

@@ -1,14 +1,2 @@
-<%= form_for [@museum, @review] do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.label :review, "Write your review below" %>
-  <%= f.text_area :review %>
-  <%= f.label :rate, "Rate this product" %>
-  <%= f.select(:rate, options_for_select([
-    ["1", 1],
-    ["2", 2],
-    ["3", 3],
-    ["4", 4],
-    ["5", 5]
-    ])) %>
-  <%= f.submit "Submit Review" %>
-<% end %>
+<h2>Edit Review </h2>
+<%= render "form"%>

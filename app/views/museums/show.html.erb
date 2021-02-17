@@ -18,15 +18,15 @@
       <% end %>
       <% (5 - review.rate).times do %>
       <span class="out-of">★</span>
-      <% end %>
+      <% end %> <br>
       <a href="<%= museum_review_path(@museum, review) %>">  <%= truncate(review.review, :length => 200) %></a>
-    <% end %>
+    <% end %> <br>
   </ul>
     <% else %>
-      <em>This museum has 0 reviews, <%= link_to "Add one now!", new_museum_review_path(@museum) %></em>
+      <em>This museum has 0 reviews</em>
     <% end %>
 
-     <% if current_user %>
+  <% if current_user %>
     <ul><%= link_to "Add a review", new_museum_review_path(@museum) %></ul>
   <% end %>
 

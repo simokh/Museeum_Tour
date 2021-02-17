@@ -1,6 +1,5 @@
 class User < ApplicationRecord
     # has_many :museums # creating museum visit 
-    has_many :visits
     has_many :reviews
     has_many :reviewed_museums, through: :reviews, source: :museum
 

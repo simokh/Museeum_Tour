@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
         def new
             @museum = Museum.find(params[:museum_id])
             @review = @museum.reviews.new
-            @review.build_visit
+            
         end
     
         def create 
@@ -41,9 +41,9 @@ class ReviewsController < ApplicationController
         end
     
         def destroy
-            @musuem= find_review.museum
-            if @museum.destroy
-            redirect_to museum_path(@museum)
+            find_review
+            if find_review.destroy
+            redirect_to '/'
             end 
         end
     

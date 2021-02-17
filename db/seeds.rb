@@ -8,19 +8,15 @@
 
     Museum.destroy_all
     Review.destroy_all
-    User.destroy_all 
+    User.destroy_all  
 
-    simo = User.create(user_name: "simo", email: "simo@email.com", password: "qwerty")
-    user1= User.create(user_name: "test", email: "test@email.com", password: "qwerty")
 
-    
-
-    met = Museum.create(name: "Metroplitan Musuem of Art", borough: "New York")
-    moma = Museum.create(name: "Metroplitan Musuem of Modern Art", borough: "New York")
-    MNH = Museum.create(name: "Musuem of Natural History", borough: "New York")
-    bk = Museum.create(name: "Brooklyn Musuem", borough: "Brooklyn")
+    met = Museum.create(name: "Metropolitan Musuem of Art", borough: "New York")
+    moma = Museum.create(name: "Metropolitan Musuem of Modern Art", borough: "New York")
+    MNH = Museum.create(name: "Museum of Natural History", borough: "New York")
+    bk = Museum.create(name: "Brooklyn Museum", borough: "Brooklyn")
     bam = Museum.create(name: "BAM", borough: "Brooklyn")
-    qm = Museum.create(name: "Queens Mueums", borough: "Queens")
+    qm = Museum.create(name: "Queens Museum", borough: "Queens")
 
 
     
