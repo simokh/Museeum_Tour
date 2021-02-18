@@ -3,6 +3,23 @@ class SessionsController < ApplicationController
     def home 
     end
 
+    def omniauth
+       user = User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |user|
+        binding.pry
+        user.user_name = auth['info']['name']
+        user.email = auth['info']['email']
+        user.password = SecureRandom.hex(10)
+       end
+
+       if user.save
+        session[:user_id] = user.id
+        redirect_to museums_path
+       else 
+        redirect_to ''
+       end
+
+    end
+
     def new 
         @user = current_user 
     end
@@ -30,6 +47,10 @@ class SessionsController < ApplicationController
     end
 
     private 
+
+    def auth 
+        request.env['omniauth.auth']
+    end
 
     def current_user
         @user = User.find_by_id(session[:user_id])

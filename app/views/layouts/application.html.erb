@@ -22,6 +22,7 @@
             <ul class= "right"><span class="user"><%= link_to "#{current_user.user_name.capitalize} (#{current_user.reviews.count})", user_path(current_user) %></span></ul> 
             <ul class= "right"><%= link_to "Sign out", logout_path %></ul>
           <% else %>
+            <ul class="right"><%= link_to "Google Login",'/auth/google_oauth2',method: :post%></ul> 
             <ul class="right"><%= link_to "Sign up", signup_path %></ul> 
             <ul class="right" tabindex="-1"><%= link_to "Log in", login_path %><ul>
           <% end %>
