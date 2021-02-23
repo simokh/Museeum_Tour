@@ -50,7 +50,7 @@ class ReviewsController < ApplicationController
         private
 
         def find_museum
-            @musuem = Museum.find(params[:museum_id])
+            @museum = Museum.find(params[:museum_id])
         end
             
         def find_review
@@ -58,6 +58,6 @@ class ReviewsController < ApplicationController
         end 
     
         def review_params
-            params.require(:review).permit(:user_id, :museum_id, :review, :rate, visit_attributes:[:visit_date])
+            params.require(:review).permit(:user_id, :museum_id, :review, :rate)
         end
 end 

@@ -6,7 +6,6 @@
 <% if @museum.reviews.any? %>
 <%= label_tag "Avergae Rating: "%> <%= @museum.reviews.average(:rate).round(2) %> / 5
 <% end %>
-
 </ul>
 
 
@@ -15,16 +14,21 @@
     <% @museum.reviews.order(:updated_at).reverse.each do |review| %>
       <% review.rate.times do %>
       <span class="star">★</span>
-      <% end %>
+      <% end %> 
       <% (5 - review.rate).times do %>
       <span class="out-of">★</span>
-      <% end %> <br>
-      <a href="<%= museum_review_path(@museum, review) %>">  <%= truncate(review.review, :length => 200) %></a>
-    <% end %> <br>
+      <% end %>
+      <p> 
+      <a href="<%= museum_review_path(@museum, review) %>">  <%= truncate(review.review, :length => 200) %> </a>
+      </p>
+    <% end %> 
   </ul>
+  <br>
     <% else %>
       <em>This museum has 0 reviews</em>
     <% end %>
+
+    
 
   <% if current_user %>
     <ul><%= link_to "Add a review", new_museum_review_path(@museum) %></ul>

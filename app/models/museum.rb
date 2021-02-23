@@ -1,6 +1,10 @@
 class Museum < ApplicationRecord
     has_many :reviews
     has_many :review_users, through: :reviews , source: :users 
+
+    
+    
+    
   
 
     scope :most_reviews, -> {(

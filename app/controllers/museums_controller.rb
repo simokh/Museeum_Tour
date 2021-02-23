@@ -1,7 +1,5 @@
 class MuseumsController < ApplicationController
 
-    # before_action :redirect_if_not_logged_in
-
 
     def index 
         @museums = Museum.all.order(:name)
@@ -14,7 +12,6 @@ class MuseumsController < ApplicationController
     def create 
         @museum = Museum.new(museum_params)
         if @museum.save
-        flash[:notice] = "Product successfully added!"
             redirect_to  museums_path
         else
             render :new
