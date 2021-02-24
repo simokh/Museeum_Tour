@@ -1,6 +1,18 @@
 class MuseumsController < ApplicationController
 
 
+
+    def display
+         
+        @user = User.find(params[:id])
+        if @user.id = session[:user_id]
+        @museums = @user.reviewed_museums    
+        else
+            redirect_to(home_path)     
+        end
+    end
+
+
     def index 
         @museums = Museum.all.order(:name)
     end

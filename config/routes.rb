@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   #logout 
   get '/logout' => 'sessions#destroy'
 
+  get '/users/:id/reviewed_museums'  => 'museums#display'
+
 
 
   resources :reviews
@@ -24,6 +26,8 @@ Rails.application.routes.draw do
   resources :museums do 
     resources :reviews
   end
+
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

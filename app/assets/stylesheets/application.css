@@ -42,21 +42,6 @@
   color: gold;
 }
 
-label, textarea, input, button, select {
-  display: block;
-}
-
-input[type="text"],
-input[type="number"],
-input[type="password"]
-input[type= "email"]
-input[type= "User name"] {
-  margin-bottom: auto;
-  width: 50%;
-  max-width: 500px;
-  border: #0a0101;
-}
-
 
   input[type="submit"] {
     margin-top: 1em;
